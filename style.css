@@ -1,0 +1,262 @@
+:root {
+    --pink-main: #ff477e;
+    --pink-soft: #fff0f3;
+    --text-dark: #2d2d2d;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: #fffbfd;
+    padding-top: 75px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- FONDO (Manchas) --- */
+.bg-shape {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    opacity: 0.5;
+}
+.shape-1 {
+    width: 350px;
+    height: 350px;
+    background: #ffc2d1;
+    top: -50px;
+    left: -50px;
+}
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: #ffe5ec;
+    bottom: 0;
+    right: 0;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.logo-circle {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--pink-soft);
+}
+.btn-icon { border: none; background: transparent; padding: 0; }
+
+/* --- MARQUEE --- */
+.marquee-container {
+    background: var(--pink-main);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+    margin-top: 0px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+.marquee-content span { margin: 0 20px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 50px 0;
+    /* En PC ocupa casi toda la pantalla para que no se vea vacío */
+    min-height: 80vh; 
+}
+
+.hero-main-img {
+    width: 100%;
+    /* En PC la hacemos grande */
+    max-width: 550px; 
+    object-fit: cover;
+    transform: rotate(2deg);
+    border: 6px solid white;
+    transition: transform 0.3s;
+}
+.hero-main-img:hover { transform: rotate(0deg) scale(1.02); }
+
+.floating-img {
+    width: 150px;
+    bottom: -30px;
+    left: -30px;
+    animation: float 4s ease-in-out infinite;
+    z-index: 2;
+}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* --- BOTONES --- */
+.btn-chic {
+    background-color: var(--pink-main);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    transition: 0.2s;
+}
+.btn-outline-pink {
+    border: 2px solid var(--pink-main);
+    color: var(--pink-main);
+    background: white;
+    transition: 0.3s;
+}
+.btn-outline-pink:hover { background: var(--pink-main); color: white; }
+.click-effect:active { transform: scale(0.95); }
+
+/* --- FILTROS --- */
+.btn-filter {
+    background: white;
+    border: 1px solid #eee;
+    color: #666;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+.btn-filter.active {
+    background-color: var(--pink-main);
+    color: white;
+    border-color: var(--pink-main);
+}
+.custom-scroll::-webkit-scrollbar { height: 0px; background: transparent; }
+
+/* --- TARJETAS PRODUCTO --- */
+.card-producto {
+    border: none;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.card-producto:hover { transform: translateY(-5px); }
+
+.img-wrapper {
+    height: 220px; /* Altura PC */
+    position: relative;
+    overflow: hidden;
+}
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.price-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: var(--pink-main);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-add-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--pink-soft);
+    color: var(--pink-main);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    z-index: 10;
+}
+
+/* --- WHATSAPP BUTTON --- */
+.btn-social {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s;
+}
+.btn-social:hover { transform: scale(1.1); color: white; }
+
+/* --- PARTÍCULAS --- */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    animation: floatUp 0.8s ease-out forwards;
+    font-size: 1.5rem;
+    z-index: 9999;
+}
+@keyframes floatUp {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -150px) scale(1.2); opacity: 0; }
+}
+
+/* --- ANIMACIONES ENTRADA --- */
+.animate-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* --- TIPOGRAFÍA --- */
+.font-script { font-family: var(--font-script); }
+.text-pink-gradient {
+    background: linear-gradient(45deg, #ff477e, #ff8fab);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- AJUSTES CELULAR (ANDROID) --- */
+@media (max-width: 768px) {
+    body { padding-top: 65px; } /* Menos espacio arriba */
+    
+    .hero-section {
+        padding: 30px 15px; 
+        min-height: auto; /* Altura automática en móvil */
+        text-align: center;
+    }
+    
+    .display-3 { font-size: 2.3rem; } /* Título más pequeño */
+    .lead { font-size: 0.95rem; }
+    
+    .hero-main-img {
+        max-width: 100%; 
+        height: auto;
+        margin-top: 20px;
+        transform: rotate(0deg); /* Sin rotación en móvil para ahorrar espacio */
+    }
+
+    /* Grid de productos ajustada */
+    .img-wrapper { height: 160px; } 
+    .card-body { padding: 8px !important; }
+    h6 { font-size: 0.85rem; }
+    
+    /* Filtros con padding lateral para que se vea que hay scroll */
+    .custom-scroll { padding-left: 10px; padding-right: 10px; }
+}

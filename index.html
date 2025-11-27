@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jessi Skincare | Glow Up ✨</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fondo "Aura" (Manchas de color para quitar lo vacío) -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand fixed-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="imagenes/Logo.jpeg" alt="Logo" class="logo-circle">
+                <div class="d-flex flex-column">
+                    <span class="brand-script text-pink" style="font-size: 1.6rem;">Jessi Skincare</span>
+                </div>
+            </a>
+            
+            <button class="btn btn-icon position-relative click-effect" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoSidebar">
+                <i class="bi bi-handbag-fill fs-3 text-dark"></i>
+                <span id="badge-carrito" class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-pink border border-white d-none">
+                    0
+                </span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cinta en Movimiento (Relleno visual) -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>✨ Envíos a toda Cuba</span> • <span>🌸 Productos 100% Originales</span> • <span>🧴 Rutinas Personalizadas</span> • <span>💖 Cruelty Free</span> • <span>✨ Envíos a toda Cuba</span> • <span>🌸 Productos 100% Originales</span>
+        </div>
+    </div>
+
+    <!-- PORTADA (HERO SECTION) -->
+    <header class="hero-section d-flex align-items-center">
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <!-- Texto (Izquierda en PC, Arriba en Android) -->
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <span class="badge bg-pink px-3 py-2 rounded-pill mb-3 shadow-sm animate-up">💖 Solo para ti</span>
+                    <h1 class="display-3 fw-bold text-dark mb-3 animate-up delay-1">
+                        Tu piel merece <br> <span class="text-pink-gradient font-script">Brillar Bonito</span>
+                    </h1>
+                    <p class="lead text-muted mb-4 animate-up delay-2">
+                        Descubre la magia del skincare. Productos seleccionados con amor para resaltar tu belleza única.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start animate-up delay-3">
+                        <a href="#catalogo" class="btn btn-chic shadow click-effect">Ver Catálogo 💕</a>
+                        <a href="https://wa.me/5354385622" target="_blank" class="btn btn-outline-pink rounded-pill px-4 fw-bold click-effect">Escribir a Jessi 💬</a>
+                    </div>
+                </div>
+                
+                <!-- Imagen (Derecha en PC, Abajo en Android) -->
+                <div class="col-lg-6 animate-up delay-2 text-center">
+                    <div class="hero-img-wrapper position-relative d-inline-block">
+                        <!-- IMAGEN GRANDE (Asegúrate que cargue) -->
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403ea2?q=80&w=1000" alt="Portada Jessi" class="img-fluid rounded-4 shadow-lg hero-main-img">
+                        
+                        <!-- Foto pequeña flotante (Solo visible en PC para no tapar en móvil) -->
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" class="img-fluid rounded-3 shadow border border-white position-absolute floating-img d-none d-lg-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CATÁLOGO -->
+    <div id="catalogo" class="container mb-5 pt-2">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold">Nuestros Favoritos</h3>
+            
+            <!-- Filtros (Scroll horizontal en móvil) -->
+            <div class="d-flex justify-content-start justify-content-lg-center gap-2 mt-3 pb-2 overflow-auto custom-scroll px-2">
+                <button class="btn btn-filter active click-effect" onclick="filtrarProductos('todos', this)">Todo</button>
+                <button class="btn btn-filter click-effect" onclick="filtrarProductos('rostro', this)">Rostro 🧖‍♀️</button>
+                <button class="btn btn-filter click-effect" onclick="filtrarProductos('cabello', this)">Cabello 💇‍♀️</button>
+                <button class="btn btn-filter click-effect" onclick="filtrarProductos('cuerpo', this)">Cuerpo 🛁</button>
+                <button class="btn btn-filter click-effect" onclick="filtrarProductos('kits', this)">Kits ✨</button>
+            </div>
+        </div>
+
+        <!-- Grid Productos -->
+        <div id="productos-container" class="row g-3 px-2">
+            <!-- JS llenará esto -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-5 border-top text-center pb-5 mb-4">
+        <div class="container">
+            <h2 class="font-script text-pink mb-3">Jessi Skincare</h2>
+            <p class="text-muted mb-4">¿Tienes dudas? Escríbenos:</p>
+            
+            <a href="https://wa.me/5354385622" target="_blank" class="btn btn-social click-effect mx-auto">
+                <i class="bi bi-whatsapp fs-3"></i>
+            </a>
+            
+            <p class="small text-muted mt-4">© 2025 Hecho con 💖 en Cuba</p>
+        </div>
+    </footer>
+
+    <!-- SIDEBAR CARRITO -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="carritoSidebar" style="width: 85%; max-width: 400px;">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold">Tu Bolsita 🛍️</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="carrito-items" class="flex-grow-1 overflow-auto"></div>
+            
+            <div class="bg-light p-3 rounded-3 mt-3 shadow-sm">
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Total:</span>
+                    <span class="fw-bold text-pink fs-4">$<span id="total-precio">0</span></span>
+                </div>
+                <button onclick="enviarPedido()" class="btn btn-chic w-100 py-3 rounded-3 click-effect">
+                    Pedir por WhatsApp <i class="bi bi-chat-heart-fill ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
